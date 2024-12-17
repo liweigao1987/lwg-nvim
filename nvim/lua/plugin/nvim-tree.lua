@@ -106,5 +106,5 @@ nvim_tree.setup({
 	},
 	diagnostics = {
 		enable = true,
-	},
-})
+		},
+	})

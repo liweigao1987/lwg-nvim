@@ -1,4 +1,4 @@
-local theme = 'monokai-pro'
+local theme = 'tokyonight'
 
 local is_ok, _ = pcall(vim.cmd, "colorscheme " .. theme)
 if not is_ok then

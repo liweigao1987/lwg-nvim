@@ -1,4 +1,6 @@
+vim.notify('--------> lwg neovim+ <--------')
 require('option')
 require('lazy-manager')
 require('theme')
-require('lsp')
+--require('lsp')
+vim.notify('--------> lwg neovim- <--------')
