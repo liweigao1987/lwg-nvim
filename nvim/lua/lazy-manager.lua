@@ -44,6 +44,38 @@ require("lazy").setup({
 --		end,
 },
 {
+  "folke/which-key.nvim",
+  event = "VeryLazy",
+  opts = {
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+  },
+  keys = {
+    {
+      "<leader>?",
+      function()
+        require("which-key").show({ global = false })
+      end,
+      desc = "Buffer Local Keymaps (which-key)",
+    },
+  },
+},
+{
+  "folke/edgy.nvim",
+  event = "VeryLazy",
+  opts = {}
+},
+-- init.lua:
+    {
+    'nvim-telescope/telescope.nvim', tag = '0.1.3',
+-- or                              , branch = '0.1.x',
+      dependencies = { 'nvim-lua/plenary.nvim' },
+		config = function()
+			require("plugin.telescope")
+		end,
+    },
+{
 		"williamboman/mason.nvim",
 	"williamboman/mason-lspconfig.nvim",
 	"neovim/nvim-lspconfig",
