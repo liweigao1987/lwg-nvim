@@ -1,3 +1,11 @@
+-- Modes
+--   normal_mode = "n",
+--   insert_mode = "i",
+--   visual_mode = "v",
+--   visual_block_mode = "x",
+--   term_mode = "t",
+--   command_mode = "c",
+   
 -- leader key 为空格
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -10,28 +18,43 @@ local opt = {
 -- 本地变量
 local map = vim.api.nvim_set_keymap
 
+map("i", "<C-h>", "<left>", opt)
+map("i", "<C-j>", "<down>", opt)
+map("i", "<C-k>", "<up>", opt)
+map("i", "<C-l>", "<right>", opt)
+
+map("n", "wh", ":vsp<cr>", opt)
+map("n", "w-", ":sp<cr>", opt)
+map("n", "wd", "<C-w>c", opt)
+map("n", "wD", "<C-w>o", opt)
+map("n", "ww", "<C-w>w", opt)
 --------------------------------------------------------------------
 -- 插件快捷键
 local pluginKeys = {}
 
 -- nvim-tree
-map("n", "<leader>ft", ":NvimTreeToggle<CR>", opt)
+map("n", "ft", ":NvimTreeToggle<CR>", opt)
 
 -- bufferline
-map("n", "<leader>bb", ":BufferLinePick<CR>", opt)
-map("n", "<leader><TAB>", ":BufferLineGoToBuffer -1<CR>", opt)
+map("n", "bb", ":BufferLinePick<CR>", opt)
+map("n", "<leader><TAB>", ":BufferLineGoToBuffer -1<cr>", opt)
 -- 左右Tab切换
-map("n", "<leader>bh", ":BufferLineCyclePrev<CR>", opt)
-map("n", "<leader>bl", ":BufferLineCycleNext<CR>", opt)
+map("n", "bh", ":BufferLineCyclePrev<CR>", opt)
+map("n", "bl", ":BufferLineCycleNext<CR>", opt)
 -- "moll/vim-bbye" 关闭当前 buffer
-map("n", "<leader>bd", ":bdelete!<CR>", opt)
+map("n", "bd", ":bdelete!<CR>", opt)
 -- 关闭其他标签页
-map("n", "<leader>bo", ":BufferLineCloseOthers<CR>", opt)
+map("n", "bo", ":BufferLineCloseOthers<CR>", opt)
+
+-- nvim-window
+local nvimWindow = require('nvim-window')
+vim.keymap.set('n', 'wo', nvimWindow.pick, { desc = "window pick" })
+-- map("n", "wo", ":lua require('nvim-window').pick()<CR>", opt)
 
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+vim.keymap.set('n', 'ff', builtin.find_files, {})
+vim.keymap.set('n', 'fg', builtin.live_grep, {})
+vim.keymap.set('n', 'fb', builtin.buffers, {})
+vim.keymap.set('n', 'fh', builtin.help_tags, {})
 
 return pluginKeys

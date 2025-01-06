@@ -150,6 +150,10 @@ require("lazy").setup({
 	config = function ()
 		require("plugin.bufferline")	
 	end
+},
+{
+  "yorickpeterse/nvim-window",
+  config = true
 }
 })
 
