@@ -142,6 +142,14 @@ require("lazy").setup({
     statuscolumn = { enabled = true },
     words = { enabled = true },
   },
+},
+{
+	'akinsho/bufferline.nvim',
+	version = "*",
+	dependencies = 'nvim-tree/nvim-web-devicons',
+	config = function ()
+		require("plugin.bufferline")	
+	end
 }
 })
 
