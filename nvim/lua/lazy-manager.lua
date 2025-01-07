@@ -37,7 +37,7 @@ require("lazy").setup({
     { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
     { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
     { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-    { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+    { "<C-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
   },
 --	config = function()
 --			require("plugin.flash")
@@ -66,15 +66,19 @@ require("lazy").setup({
   event = "VeryLazy",
   opts = {}
 },
--- init.lua:
     {
     'nvim-telescope/telescope.nvim', tag = '0.1.3',
--- or                              , branch = '0.1.x',
       dependencies = { 'nvim-lua/plenary.nvim' },
 		config = function()
 			require("plugin.telescope")
 		end,
     },
+	{
+		"LinArcX/telescope-env.nvim"
+	},
+	{
+		"nvim-telescope/telescope-ui-select.nvim"
+	},
 {
 		"williamboman/mason.nvim",
 	"williamboman/mason-lspconfig.nvim",
@@ -201,6 +205,9 @@ require("lazy").setup({
     config = function()
         require("plugin.treesitter")
 	end
-}
+},
+	{
+		"mhartington/formatter.nvim"
+	}
 })
 
