@@ -23,14 +23,32 @@ map("i", "<C-j>", "<down>", opt)
 map("i", "<C-k>", "<up>", opt)
 map("i", "<C-l>", "<right>", opt)
 
-map("n", "wh", ":vsp<cr>", opt)
+map("n", "w/", ":vsp<cr>", opt)
 map("n", "w-", ":sp<cr>", opt)
 map("n", "wd", "<C-w>c", opt)
 map("n", "wD", "<C-w>o", opt)
-map("n", "ww", "<C-w>w", opt)
+map("n", "wo", "<C-w>w", opt)
 --------------------------------------------------------------------
 -- 插件快捷键
 local pluginKeys = {}
+
+-- Telescope 列表中 插入模式快捷键
+pluginKeys.telescopeList = {
+  i = {
+    -- 上下移动
+    ["<C-j>"] = "move_selection_next",
+    ["<C-k>"] = "move_selection_previous",
+    -- 历史记录
+    -- ["<Down>"] = "cycle_history_next",
+    -- ["<Up>"] = "cycle_history_prev",
+    -- 关闭窗口
+    -- ["<esc>"] = actions.close,
+    ["<C-c>"] = "close",
+    -- 预览窗口上下滚动
+    -- ["<C-u>"] = "preview_scrolling_up",
+    -- ["<C-d>"] = "preview_scrolling_down",
+  },
+}
 
 -- nvim-tree
 map("n", "ft", ":NvimTreeToggle<CR>", opt)
@@ -48,7 +66,7 @@ map("n", "bo", ":BufferLineCloseOthers<CR>", opt)
 
 -- nvim-window
 local nvimWindow = require('nvim-window')
-vim.keymap.set('n', 'wo', nvimWindow.pick, { desc = "window pick" })
+vim.keymap.set('n', 'ww', nvimWindow.pick, { desc = "window pick" })
 -- map("n", "wo", ":lua require('nvim-window').pick()<CR>", opt)
 
 local builtin = require('telescope.builtin')
