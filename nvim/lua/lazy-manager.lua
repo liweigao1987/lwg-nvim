@@ -185,6 +185,15 @@ require("lazy").setup({
     config = function()
         require("plugin.surround")
 	end
+},
+{
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    config = function()
+        require("plugin.autopairs")
+	end
+    -- use opts = {} for passing setup options
+    -- this is equivalent to setup({}) function
 }
 })
 
