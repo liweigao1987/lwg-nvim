@@ -75,4 +75,18 @@ map('n', 'fg', builtin.live_grep, {})
 map('n', 'fb', builtin.buffers, {})
 map('n', 'fh', builtin.help_tags, {})
 
+-- comment
+pluginKeys.comment = {
+  -- Normal 模式快捷键
+  toggler = {
+    line = "cl", -- 行注释
+    block = "cb", -- 块注释
+  },
+  -- Visual 模式
+  opleader = {
+    line = "cl",
+    block = "cb",
+  },
+}
+
 return pluginKeys

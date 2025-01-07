@@ -148,7 +148,7 @@ require("lazy").setup({
 	version = "*",
 	dependencies = 'nvim-tree/nvim-web-devicons',
 	config = function ()
-		require("plugin.bufferline")	
+		require("plugin.bufferline")
 	end
 },
 {
@@ -171,6 +171,12 @@ require("lazy").setup({
                 desc = 'Create a selection for selected text or word under the cursor',
             },
         },
+},
+{
+    'numToStr/Comment.nvim',
+	config = function ()
+		require("plugin.comment")
+	end
 }
 })
 
