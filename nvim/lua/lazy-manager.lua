@@ -194,6 +194,13 @@ require("lazy").setup({
 	end
     -- use opts = {} for passing setup options
     -- this is equivalent to setup({}) function
+},
+{
+      "nvim-treesitter/nvim-treesitter",
+      run = ":TSUpdate",
+    config = function()
+        require("plugin.treesitter")
+	end
 }
 })
 
