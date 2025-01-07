@@ -16,7 +16,7 @@ local opt = {
 }
 
 -- 本地变量
-local map = vim.api.nvim_set_keymap
+local map = vim.keymap.set
 
 map("i", "<C-h>", "<left>", opt)
 map("i", "<C-j>", "<down>", opt)
@@ -66,13 +66,13 @@ map("n", "bo", ":BufferLineCloseOthers<CR>", opt)
 
 -- nvim-window
 local nvimWindow = require('nvim-window')
-vim.keymap.set('n', 'ww', nvimWindow.pick, { desc = "window pick" })
+map('n', 'ww', nvimWindow.pick, { desc = "window pick" })
 -- map("n", "wo", ":lua require('nvim-window').pick()<CR>", opt)
 
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', 'ff', builtin.find_files, {})
-vim.keymap.set('n', 'fg', builtin.live_grep, {})
-vim.keymap.set('n', 'fb', builtin.buffers, {})
-vim.keymap.set('n', 'fh', builtin.help_tags, {})
+map('n', 'ff', builtin.find_files, {})
+map('n', 'fg', builtin.live_grep, {})
+map('n', 'fb', builtin.buffers, {})
+map('n', 'fh', builtin.help_tags, {})
 
 return pluginKeys
