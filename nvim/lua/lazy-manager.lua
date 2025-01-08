@@ -79,19 +79,21 @@ require("lazy").setup({
 	{
 		"nvim-telescope/telescope-ui-select.nvim"
 	},
-{
-		"williamboman/mason.nvim",
-	"williamboman/mason-lspconfig.nvim",
-	"neovim/nvim-lspconfig",
+	{
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+		config = function()
+			require("lsp.mason")
+		end,
 },
-		{
-		"onsails/lspkind.nvim",
-		event = { "VimEnter" },
-	},
+{
+	"onsails/lspkind-nvim",
+	"tami5/lspsaga.nvim"
+},
 	{
 		"hrsh7th/nvim-cmp",
 		dependencies = {
-			"lspkind.nvim",
 			"hrsh7th/cmp-nvim-lsp", -- lsp auto-completion
 			"hrsh7th/cmp-buffer", -- buffer auto-completion
 			"hrsh7th/cmp-path", -- path auto-completion
@@ -121,6 +123,9 @@ require("lazy").setup({
 			require("plugin.lualine")
 		end,
 },
+	{
+		"arkav/lualine-lsp-progress"
+	},
 		{
 			  'ahmedkhalf/project.nvim',
 		config = function()

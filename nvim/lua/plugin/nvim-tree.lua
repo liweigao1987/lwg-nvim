@@ -97,6 +97,12 @@ end
 -- setup with some options
 nvim_tree.setup({
 	sort_by = "case_sensitive",
+	  -- project plugin 需要这样设置
+	  update_cwd = true,
+	  update_focused_file = {
+	    enable = true,
+	    update_cwd = true,
+	  },
 	on_attach = on_attach,
 	renderer = {
 		group_empty = true,
