@@ -5,14 +5,14 @@
 --   visual_block_mode = "x",
 --   term_mode = "t",
 --   command_mode = "c",
-   
+
 -- leader key 为空格
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 local opt = {
-  noremap = true,
-  silent = true,
+	noremap = true,
+	silent = true,
 }
 
 -- 本地变量
@@ -34,20 +34,20 @@ local pluginKeys = {}
 
 -- Telescope 列表中 插入模式快捷键
 pluginKeys.telescopeList = {
-  i = {
-    -- 上下移动
-    ["<C-j>"] = "move_selection_next",
-    ["<C-k>"] = "move_selection_previous",
-    -- 历史记录
-    -- ["<Down>"] = "cycle_history_next",
-    -- ["<Up>"] = "cycle_history_prev",
-    -- 关闭窗口
-    -- ["<esc>"] = actions.close,
-    ["<C-c>"] = "close",
-    -- 预览窗口上下滚动
-    -- ["<C-u>"] = "preview_scrolling_up",
-    -- ["<C-d>"] = "preview_scrolling_down",
-  },
+	i = {
+		-- 上下移动
+		["<C-j>"] = "move_selection_next",
+		["<C-k>"] = "move_selection_previous",
+		-- 历史记录
+		-- ["<Down>"] = "cycle_history_next",
+		-- ["<Up>"] = "cycle_history_prev",
+		-- 关闭窗口
+		-- ["<esc>"] = actions.close,
+		["<C-c>"] = "close",
+		-- 预览窗口上下滚动
+		-- ["<C-u>"] = "preview_scrolling_up",
+		-- ["<C-d>"] = "preview_scrolling_down",
+	},
 }
 
 -- nvim-tree
@@ -77,68 +77,69 @@ map('n', 'fh', builtin.help_tags, {})
 
 -- comment
 pluginKeys.comment = {
-  -- Normal 模式快捷键
-  toggler = {
-    line = "cl", -- 行注释
-    block = "cb", -- 块注释
-  },
-  -- Visual 模式
-  opleader = {
-    line = "cl",
-    block = "cb",
-  },
+	-- Normal 模式快捷键
+	toggler = {
+		line = "cl", -- 行注释
+		block = "cb", -- 块注释
+	},
+	-- Visual 模式
+	opleader = {
+		line = "cl",
+		block = "cb",
+	},
 }
 
 -- lsp 回调函数快捷键设置
 pluginKeys.mapLSP = function(mapbuf)
-  -- rename
-  --[[
+	-- rename
+	--[[
   Lspsaga 替换 rn
   mapbuf("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opt)
   --]]
-  mapbuf("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opt)
-  -- code action
-  --[[
+	mapbuf("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opt)
+	-- code action
+	--[[
   Lspsaga 替换 ca
   mapbuf("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opt)
   --]]
-  mapbuf("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opt)
-  -- go xx
-  --[[
+	mapbuf("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opt)
+	-- go xx
+	--[[
     mapbuf('n', 'gd', '<cmd>Lspsaga preview_definition<CR>', opt)
   mapbuf("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
   --]]
-  mapbuf("n", "gd", "<cmd>lua require'telescope.builtin'.lsp_definitions({ initial_mode = 'normal', })<CR>", opt)
-  --[[
+	mapbuf("n", "gd", "<cmd>lua require'telescope.builtin'.lsp_definitions({ initial_mode = 'normal', })<CR>", opt)
+	--[[
   mapbuf("n", "gh", "<cmd>Lspsaga hover_doc<cr>", opt)
   Lspsaga 替换 gh
   --]]
-  mapbuf("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", opt)
-  --[[
+	mapbuf("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", opt)
+	--[[
   Lspsaga 替换 gr
   mapbuf("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opt)
   --]]
-  mapbuf("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opt)
-  --[[
+	mapbuf("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opt)
+	--[[
   Lspsaga 替换 gp, gj, gk
   mapbuf("n", "gp", "<cmd>lua vim.diagnostic.open_float()<CR>", opt)
   mapbuf("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<CR>", opt)
   mapbuf("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opt)
   --]]
-  -- diagnostic
-  mapbuf("n", "gp", "<cmd>Lspsaga show_line_diagnostics<CR>", opt)
-  mapbuf("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>", opt)
-  mapbuf("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opt)
-  mapbuf("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opt)
-  -- 未用
-  -- mapbuf("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
-  -- mapbuf("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
-  -- mapbuf('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opt)
-  -- mapbuf("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opt)
-  -- mapbuf('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opt)
-  -- mapbuf('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opt)
-  -- mapbuf('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opt)
-  -- mapbuf('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opt)
+	-- diagnostic
+	mapbuf("n", "gp", "<cmd>Lspsaga show_line_diagnostics<CR>", opt)
+	mapbuf("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>", opt)
+	mapbuf("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opt)
+	-- mapbuf("n", "<leader>f", ":echo \"lwg\"<cr>", opt)
+	mapbuf("n", "<leader>f", "<cmd>lua vim.lsp.buf.format()<CR>", opt)
+	-- 未用
+	-- mapbuf("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
+	-- mapbuf("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
+	-- mapbuf('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opt)
+	-- mapbuf("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opt)
+	-- mapbuf('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opt)
+	-- mapbuf('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opt)
+	-- mapbuf('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opt)
+	-- mapbuf('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opt)
 end
 
 return pluginKeys

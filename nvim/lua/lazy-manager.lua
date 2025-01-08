@@ -12,67 +12,68 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
---{
---  "loctvl842/monokai-pro.nvim",
---  config = function()
---    require("monokai-pro").setup()
---  end
---},
-{
-  "folke/tokyonight.nvim",
-  lazy = false,
-  priority = 1000,
-  opts = {
-	style = "night",
-  },
-},
-{
-  "folke/flash.nvim",
-  event = "VeryLazy",
-  ---@type Flash.Config
-  opts = {},
-  -- stylua: ignore
-  keys = {
-    { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-    { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
-    { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
-    { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-    { "<C-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
-  },
---	config = function()
---			require("plugin.flash")
---		end,
-},
-{
-  "folke/which-key.nvim",
-  event = "VeryLazy",
-  opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-  },
-  keys = {
-    {
-      "<leader>?",
-      function()
-        require("which-key").show({ global = false })
-      end,
-      desc = "Buffer Local Keymaps (which-key)",
-    },
-  },
-},
-{
-  "folke/edgy.nvim",
-  event = "VeryLazy",
-  opts = {}
-},
-    {
-    'nvim-telescope/telescope.nvim', tag = '0.1.3',
-      dependencies = { 'nvim-lua/plenary.nvim' },
+	--{
+	--  "loctvl842/monokai-pro.nvim",
+	--  config = function()
+	--    require("monokai-pro").setup()
+	--  end
+	--},
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {
+			style = "night",
+		},
+	},
+	{
+		"folke/flash.nvim",
+		event = "VeryLazy",
+		---@type Flash.Config
+		opts = {},
+		-- stylua: ignore
+		keys = {
+			{ "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
+			{ "S",     mode = { "n", "x", "o" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
+			{ "r",     mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
+			{ "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+			{ "<C-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
+		},
+		--	config = function()
+		--			require("plugin.flash")
+		--		end,
+	},
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		opts = {
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+		},
+		keys = {
+			{
+				"<leader>?",
+				function()
+					require("which-key").show({ global = false })
+				end,
+				desc = "Buffer Local Keymaps (which-key)",
+			},
+		},
+	},
+	{
+		"folke/edgy.nvim",
+		event = "VeryLazy",
+		opts = {}
+	},
+	{
+		'nvim-telescope/telescope.nvim',
+		tag = '0.1.3',
+		dependencies = { 'nvim-lua/plenary.nvim' },
 		config = function()
 			require("plugin.telescope")
 		end,
-    },
+	},
 	{
 		"LinArcX/telescope-env.nvim"
 	},
@@ -80,17 +81,17 @@ require("lazy").setup({
 		"nvim-telescope/telescope-ui-select.nvim"
 	},
 	{
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
-    "neovim/nvim-lspconfig",
-		config = function()
-			require("lsp.mason")
-		end,
-},
-{
-	"onsails/lspkind-nvim",
-	"tami5/lspsaga.nvim"
-},
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+		"neovim/nvim-lspconfig",
+	},
+	{
+		"onsails/lspkind-nvim",
+		"tami5/lspsaga.nvim"
+	},
+	{
+		"folke/lua-dev.nvim"
+	},
 	{
 		"hrsh7th/nvim-cmp",
 		dependencies = {
@@ -103,11 +104,11 @@ require("lazy").setup({
 			require("plugin.nvim-cmp")
 		end,
 	},
-		{
+	{
 		"L3MON4D3/LuaSnip",
 		version = "v2.*",
 	},
-		{
+	{
 		"nvim-tree/nvim-tree.lua",
 		dependencies = {
 			"nvim-tree/nvim-web-devicons", -- optional, for file icons
@@ -117,109 +118,108 @@ require("lazy").setup({
 		end,
 	},
 	{
-    'nvim-lualine/lualine.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
+		'nvim-lualine/lualine.nvim',
+		dependencies = { 'nvim-tree/nvim-web-devicons' },
 		config = function()
 			require("plugin.lualine")
 		end,
-},
+	},
 	{
 		"arkav/lualine-lsp-progress"
 	},
-		{
-			  'ahmedkhalf/project.nvim',
+	{
+		'ahmedkhalf/project.nvim',
 		config = function()
 			require("plugin.project")
 		end,
 	},
 	{
-  "folke/snacks.nvim",
-  priority = 1000,
-  lazy = false,
-  ---@type snacks.Config
-  opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-    bigfile = { enabled = true },
-    dashboard = { enabled = true },
-    indent = { enabled = true },
-    input = { enabled = true },
-    notifier = { enabled = true },
-    quickfile = { enabled = true },
-    scroll = { enabled = true },
-    statuscolumn = { enabled = true },
-    words = { enabled = true },
-  },
-},
-{
-	'akinsho/bufferline.nvim',
-	version = "*",
-	dependencies = 'nvim-tree/nvim-web-devicons',
-	config = function ()
-		require("plugin.bufferline")
-	end
-},
-{
-  "yorickpeterse/nvim-window",
-  config = true
-},
-{
-    "smoka7/multicursors.nvim",
-    event = "VeryLazy",
-    dependencies = {
-        'nvimtools/hydra.nvim',
-    },
-    opts = {},
-    cmd = { 'MCstart', 'MCvisual', 'MCclear', 'MCpattern', 'MCvisualPattern', 'MCunderCursor' },
-    keys = {
-            {
-                mode = { 'v', 'n' },
-                '<Leader>m',
-                '<cmd>MCstart<cr>',
-                desc = 'Create a selection for selected text or word under the cursor',
-            },
-        },
-},
-{
-    'numToStr/Comment.nvim',
-	config = function ()
-		require("plugin.comment")
-	end
-},
-{
-    "kylechui/nvim-surround",
-    version = "*", -- Use for stability; omit to use `main` branch for the latest features
-    event = "VeryLazy",
-    config = function()
-        require("plugin.surround")
-	end
-},
-{
-    'windwp/nvim-autopairs',
-    event = "InsertEnter",
-    config = function()
-        require("plugin.autopairs")
-	end
-    -- use opts = {} for passing setup options
-    -- this is equivalent to setup({}) function
-},
-{
-      "nvim-treesitter/nvim-treesitter",
-      run = ":TSUpdate",
-    config = function()
-        require("plugin.treesitter")
-	end
-},
+		"folke/snacks.nvim",
+		priority = 1000,
+		lazy = false,
+		---@type snacks.Config
+		opts = {
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+			bigfile = { enabled = true },
+			dashboard = { enabled = true },
+			indent = { enabled = true },
+			input = { enabled = true },
+			notifier = { enabled = true },
+			quickfile = { enabled = true },
+			scroll = { enabled = true },
+			statuscolumn = { enabled = true },
+			words = { enabled = true },
+		},
+	},
+	{
+		'akinsho/bufferline.nvim',
+		version = "*",
+		dependencies = 'nvim-tree/nvim-web-devicons',
+		config = function()
+			require("plugin.bufferline")
+		end
+	},
+	{
+		"yorickpeterse/nvim-window",
+		config = true
+	},
+	{
+		"smoka7/multicursors.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			'nvimtools/hydra.nvim',
+		},
+		opts = {},
+		cmd = { 'MCstart', 'MCvisual', 'MCclear', 'MCpattern', 'MCvisualPattern', 'MCunderCursor' },
+		keys = {
+			{
+				mode = { 'v', 'n' },
+				'<Leader>m',
+				'<cmd>MCstart<cr>',
+				desc = 'Create a selection for selected text or word under the cursor',
+			},
+		},
+	},
+	{
+		'numToStr/Comment.nvim',
+		config = function()
+			require("plugin.comment")
+		end
+	},
+	{
+		"kylechui/nvim-surround",
+		version = "*", -- Use for stability; omit to use `main` branch for the latest features
+		event = "VeryLazy",
+		config = function()
+			require("plugin.surround")
+		end
+	},
+	{
+		'windwp/nvim-autopairs',
+		event = "InsertEnter",
+		config = function()
+			require("plugin.autopairs")
+		end
+		-- use opts = {} for passing setup options
+		-- this is equivalent to setup({}) function
+	},
+	{
+		"nvim-treesitter/nvim-treesitter",
+		run = ":TSUpdate",
+		config = function()
+			require("plugin.treesitter")
+		end
+	},
 	{
 		"mhartington/formatter.nvim"
 	},
 	{
 		"jose-elias-alvarez/null-ls.nvim",
-	      dependencies = { 'nvim-lua/plenary.nvim' },
-	    config = function()
-		require("lsp.null-ls")
+		dependencies = { 'nvim-lua/plenary.nvim' },
+		config = function()
+			require("lsp.null-ls")
 		end
 	}
 })
-
