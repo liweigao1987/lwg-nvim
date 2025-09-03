@@ -81,6 +81,16 @@ require("lazy").setup({
 		"nvim-telescope/telescope-ui-select.nvim"
 	},
 	{
+		"nvim-telescope/telescope-file-browser.nvim",
+		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+	},
+	{
+		'nvim-telescope/telescope-project.nvim',
+		dependencies = {
+			'nvim-telescope/telescope.nvim',
+		},
+	},
+	{
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 		"neovim/nvim-lspconfig",
@@ -127,12 +137,12 @@ require("lazy").setup({
 	{
 		"arkav/lualine-lsp-progress"
 	},
-	{
-		'ahmedkhalf/project.nvim',
-		config = function()
-			require("plugin.project")
-		end,
-	},
+	-- {
+	-- 	'ahmedkhalf/project.nvim',
+	-- 	config = function()
+	-- 		require("plugin.project")
+	-- 	end,
+	-- },
 	{
 		"folke/snacks.nvim",
 		priority = 1000,
@@ -147,17 +157,17 @@ require("lazy").setup({
 				pane_gap = 20,
 				preset = {
 					header = [[
- __
-/  |
-$$ |       __   __   __   ______
-$$ |      /  | /  | /  | /      \
+ __                               
+/  |                              
+$$ |       __   __   __   ______  
+$$ |      /  | /  | /  | /      \ 
 $$ |      $$ | $$ | $$ |/$$$$$$  |
 $$ |      $$ | $$ | $$ |$$ |  $$ |
 $$ |_____ $$ \_$$ \_$$ |$$ \__$$ |
 $$       |$$   $$   $$/ $$    $$ |
 $$$$$$$$/  $$$$$/$$$$/   $$$$$$$ |
                         /  \__$$ |
-                        $$    $$/
+                        $$    $$/ 
                          $$$$$$/
 ]]
 				},

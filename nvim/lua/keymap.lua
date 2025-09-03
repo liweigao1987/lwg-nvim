@@ -48,6 +48,9 @@ pluginKeys.telescopeList = {
 		-- ["<C-u>"] = "preview_scrolling_up",
 		-- ["<C-d>"] = "preview_scrolling_down",
 	},
+	n = {
+		["<C-c>"] = "close",
+	},
 }
 
 -- nvim-tree
@@ -74,6 +77,7 @@ map('n', 'ff', builtin.find_files, {})
 map('n', 'fg', builtin.live_grep, {})
 map('n', 'fb', builtin.buffers, {})
 map('n', 'fh', builtin.help_tags, {})
+map('n', '<leader>p', ":Telescope project<CR>", opt)
 
 -- comment
 pluginKeys.comment = {
