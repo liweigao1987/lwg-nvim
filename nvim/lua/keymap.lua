@@ -52,6 +52,17 @@ pluginKeys.telescopeList = {
 		["<C-c>"] = "close",
 	},
 }
+local builtin = require('telescope.builtin')
+map('n', 'ff', builtin.find_files, {})
+map('n', 'fg', builtin.live_grep, {})
+map('n', 'fb', builtin.buffers, {})
+map('n', 'fh', builtin.help_tags, {})
+map('n', 'fu', builtin.current_buffer_fuzzy_find, {})
+map('n', 'fw', function()
+	builtin.grep_string({ search = vim.fn.expand("<cword>"), path = "%" })
+end, {})
+map('n', '<leader>p', ":Telescope project<CR>", opt)
+
 
 -- nvim-tree
 map("n", "ft", ":NvimTreeToggle<CR>", opt)
@@ -71,13 +82,6 @@ map("n", "bo", ":BufferLineCloseOthers<CR>", opt)
 local nvimWindow = require('nvim-window')
 map('n', 'ww', nvimWindow.pick, { desc = "window pick" })
 -- map("n", "wo", ":lua require('nvim-window').pick()<CR>", opt)
-
-local builtin = require('telescope.builtin')
-map('n', 'ff', builtin.find_files, {})
-map('n', 'fg', builtin.live_grep, {})
-map('n', 'fb', builtin.buffers, {})
-map('n', 'fh', builtin.help_tags, {})
-map('n', '<leader>p', ":Telescope project<CR>", opt)
 
 -- comment
 pluginKeys.comment = {
