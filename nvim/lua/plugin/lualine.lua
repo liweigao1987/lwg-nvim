@@ -9,7 +9,6 @@ lualine.setup({
 		-- 指定皮肤
 		-- https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
 		theme = "tokyonight",
-		globalstatus = true,
 	},
 	extensions = { "nvim-tree" },
 	sections = {
