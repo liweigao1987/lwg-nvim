@@ -24,8 +24,11 @@ bufferline.setup {
 		show_tab_indicators = false,
 	},
 	highlights = {
+		buffer = {
+			fg = '#2E8B57',
+		},
 		buffer_visible = {
-			fg = '#2E8B57'
+			fg = '#2E8B57',
 		},
 		buffer_selected = {
 			fg = '#7CFC00',
