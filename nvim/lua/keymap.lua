@@ -83,6 +83,14 @@ local nvimWindow = require('nvim-window')
 map('n', 'ww', nvimWindow.pick, { desc = "window pick" })
 -- map("n", "wo", ":lua require('nvim-window').pick()<CR>", opt)
 
+-- flash
+local flash = require('flash')
+map({ 'n', 'x', 'o' }, 's', function() flash.jump() end, { desc = "flash" })
+map({ 'n', 'x', 'o' }, 'S', function() flash.treesitter() end, { desc = "flash treesitter" })
+map('o', 'r', function() flash.remote() end, { desc = "remote flash" })
+map({ 'o', 'x' }, 'R', function() flash.treesitter_search() end, { desc = "treesitter search" })
+map('c', '<C-s>', function() flash.toggle() end, { desc = "toggle flash search" })
+
 -- comment
 pluginKeys.comment = {
 	-- Normal 模式快捷键
