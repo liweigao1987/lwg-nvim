@@ -1,7 +1,7 @@
 require("mason").setup()
 
 require("mason-lspconfig").setup({
-	ensure_installed = { "lua_ls", "bashls" },
+	ensure_installed = { "lua_ls", "bashls", "clangd" },
 })
 -- After setting up mason-lspconfig you may set up servers via lspconfig
 local lspCfg = require("lspconfig")
@@ -46,5 +46,15 @@ lspCfg.lua_ls.setup {
 		-- 绑定快捷键
 		require("keymap").mapLSP(buf_set_keymap)
 	end,
+}
+
+lspCfg.clangd.setup {
+	cmd = {
+		"clangd",
+		"--header-insertion=never",
+		"--query-driver=/usr/bin/clang",
+		"--all-scopes=completion",
+		"--completion-style=detailed",
+	}
 }
 -- require("lspconfig").rust_analyzer.setup {}
