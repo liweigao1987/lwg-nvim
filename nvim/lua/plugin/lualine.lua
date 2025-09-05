@@ -4,6 +4,12 @@ if not status then
 	return
 end
 
+local function my_win_num()
+	local icons = { '❶', '❷', '❸', '❹', '❺', '❻', '❼', '❽' }
+	local win_num = vim.api.nvim_win_get_number(0)
+	return icons[win_num] or tostring(win_num)
+end
+
 lualine.setup({
 	options = {
 		-- 指定皮肤
@@ -12,6 +18,12 @@ lualine.setup({
 	},
 	extensions = { "nvim-tree" },
 	sections = {
+		lualine_a = {
+			{
+				my_win_num,
+			},
+			{ 'mode' },
+		},
 		lualine_c = {
 			"filename",
 			{
@@ -36,6 +48,13 @@ lualine.setup({
 			},
 			"encoding",
 			"filetype",
+		},
+	},
+	inactive_sections = {
+		lualine_a = {
+			{
+				my_win_num,
+			}
 		},
 	},
 })

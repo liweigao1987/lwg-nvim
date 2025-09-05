@@ -28,6 +28,16 @@ map("n", "<leader>w-", ":sp<cr>", opt)
 map("n", "<leader>wd", "<C-w>c", opt)
 map("n", "<leader>wD", "<C-w>o", opt)
 map("n", "<leader>wo", "<C-w>w", opt)
+map("n", "<leader>0", ":0wincmd w <cr>", opt)
+map("n", "<leader>1", ":1wincmd w <cr>", opt)
+map("n", "<leader>2", ":2wincmd w <cr>", opt)
+map("n", "<leader>3", ":3wincmd w <cr>", opt)
+map("n", "<leader>4", ":4wincmd w <cr>", opt)
+map("n", "<leader>5", ":5wincmd w <cr>", opt)
+map("n", "<leader>6", ":6wincmd w <cr>", opt)
+map("n", "<leader>7", ":7wincmd w <cr>", opt)
+map("n", "<leader>8", ":8wincmd w <cr>", opt)
+
 --------------------------------------------------------------------
 -- 插件快捷键
 local pluginKeys = {}
@@ -58,12 +68,13 @@ map('n', '<leader>fd', ":Telescope file_browser<cr>", {})
 map('n', '<leader>fg', builtin.live_grep, {})
 map('n', '<leader>fb', builtin.buffers, {})
 map('n', '<leader>fh', builtin.help_tags, {})
-map('n', '<leader>fu', builtin.current_buffer_fuzzy_find, {})
-map('n', '<leader>fw', function()
-	builtin.grep_string({ search = vim.fn.expand("<cword>"), path = "%" })
-end, {})
+-- map('n', '<leader>fu', builtin.current_buffer_fuzzy_find, {})
+-- map('n', '<leader>fw', function()
+-- 	builtin.grep_string({ search = vim.fn.expand("<cword>"), path = "%" })
+-- end, {})
 map('n', '<leader>pp', ":Telescope project<CR>", opt)
-
+map('n', '<leader>ss', ":Telescope lsp_document_symbols<cr>", opt)
+map('n', '<leader>sp', ":Telescope lsp_dynamic_workspace_symbols <cr>", opt)
 
 -- nvim-tree
 map("n", "<leader>ft", ":NvimTreeToggle<CR>", opt)
@@ -86,14 +97,16 @@ map('n', '<leader>ww', nvimWindow.pick, { desc = "window pick" })
 
 -- flash
 local flash = require('flash')
-map({ 'n', 'x', 'o' }, 's', function() flash.jump() end, { desc = "flash" })
-map({ 'n', 'x', 'o' }, 'S', function() flash.treesitter() end, { desc = "flash treesitter" })
-map('o', 'r', function() flash.remote() end, { desc = "remote flash" })
-map({ 'o', 'x' }, 'R', function() flash.treesitter_search() end, { desc = "treesitter search" })
+map({ 'n', 'x', 'o' }, '<leader>jj', function() flash.jump() end, { desc = "flash" })
+map({ 'n', 'x', 'o' }, '<leader>jt', function() flash.treesitter() end, { desc = "flash treesitter" })
+map('o', '<leader>jr', function() flash.remote() end, { desc = "remote flash" })
+map({ 'o', 'x' }, '<leader>js', function() flash.treesitter_search() end, { desc = "treesitter search" })
 map('c', '<C-s>', function() flash.toggle() end, { desc = "toggle flash search" })
 
 -- multicursor
 map('n', '<leader>se', ":MCstart<CR>", opt)
+
+map('n', '<leader>lr', "<cmd>lua vim.lsp.buf.rename()<cr>", opt)
 
 -- comment
 pluginKeys.comment = {
