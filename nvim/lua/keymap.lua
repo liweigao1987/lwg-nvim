@@ -22,6 +22,8 @@ map("i", "<C-h>", "<left>", opt)
 map("i", "<C-j>", "<down>", opt)
 map("i", "<C-k>", "<up>", opt)
 map("i", "<C-l>", "<right>", opt)
+map("i", "<C-a>", "<esc>I", opt)
+map("i", "<C-e>", "<esc>A", opt)
 
 map("n", "<leader>w/", ":vsp<cr>", opt)
 map("n", "<leader>w-", ":sp<cr>", opt)
@@ -49,14 +51,11 @@ pluginKeys.telescopeList = {
 		["<C-j>"] = "move_selection_next",
 		["<C-k>"] = "move_selection_previous",
 		-- 历史记录
-		-- ["<Down>"] = "cycle_history_next",
-		-- ["<Up>"] = "cycle_history_prev",
+		["<C-n>"] = "cycle_history_next",
+		["<C-p>"] = "cycle_history_prev",
 		-- 关闭窗口
 		-- ["<esc>"] = actions.close,
 		["<C-c>"] = "close",
-		-- 预览窗口上下滚动
-		-- ["<C-u>"] = "preview_scrolling_up",
-		-- ["<C-d>"] = "preview_scrolling_down",
 	},
 	n = {
 		["<C-c>"] = "close",
