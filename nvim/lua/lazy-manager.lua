@@ -248,5 +248,60 @@ $$$$$$$$/  $$$$$/$$$$/   $$$$$$$ |
 		config = function()
 			require("lsp.null-ls")
 		end
+	},
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		ft = { "markdown" },
+		build = function() vim.fn["mkdp#util#install"]() end,
+	},
+	{
+		'MeanderingProgrammer/render-markdown.nvim',
+		dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.nvim' }, -- if you use the mini.nvim suite
+		-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.icons' }, -- if you use standalone mini plugins
+		-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+		---@module 'render-markdown'
+		---@type render.md.UserConfig
+		opts = {},
+	},
+	{
+		'kaymmm/bullets.nvim',
+		opts = {
+			colon_indent = true,
+			delete_last_bullet = true,
+			empty_buffers = true,
+			file_types = { 'markdown', 'text', 'gitcommit' },
+			line_spacing = 1,
+			mappings = true,
+			outline_levels = { 'ROM', 'ABC', 'num', 'abc', 'rom', 'std*', 'std-', 'std+' },
+			renumber = true,
+			alpha = {
+				len = 2,
+			},
+			checkbox = {
+				nest = true,
+				markers = ' .oOx',
+				toggle_partials = true,
+			},
+		}
+	},
+	{
+		"dhruvasagar/vim-table-mode"
 	}
+	-- {
+	-- 	"tpope/vim-markdown",
+	-- 	config = function()
+	-- 		-- tpope/vim-markdown
+	-- 		vim.g.markdown_syntax_conceal = 0
+	-- 		vim.g.markdown_fenced_languages =
+	-- 		{ "html", "python", "bash=sh", "json", "java", "js=javascript", "sql", "yaml", "xml",
+	-- 			"Dockerfile", "Rust", "javascript", 'lua' }
+	-- 	end,
+	-- },
+	-- {
+	-- 	"iamcco/markdown-preview.nvim",
+	-- 	cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+	-- 	ft = { "markdown" },
+	-- 	build = function() vim.fn["mkdp#util#install"]() end,
+	-- }
 })
