@@ -121,6 +121,10 @@ pluginKeys.comment = {
 	},
 }
 
+--vim-table-mode
+vim.g.table_mode_motion_right_map = '<tab>'
+vim.g.table_mode_motion_left_map = '<S-tab>'
+
 -- lsp 回调函数快捷键设置
 pluginKeys.mapLSP = function(mapbuf)
 	-- rename

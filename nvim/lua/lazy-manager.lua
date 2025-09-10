@@ -286,7 +286,10 @@ $$$$$$$$/  $$$$$/$$$$/   $$$$$$$ |
 		}
 	},
 	{
-		"dhruvasagar/vim-table-mode"
+		"dhruvasagar/vim-table-mode",
+		config = function()
+			require("plugin.vim-table")
+		end
 	}
 	-- {
 	-- 	"tpope/vim-markdown",
