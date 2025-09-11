@@ -42,7 +42,7 @@ return {
   cmd = { 'ccls' },
   filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda' },
   root_markers = { 'compile_commands.json', '.ccls', '.git' },
-  offset_encoding = 'utf-8',
+  offset_encoding = 'utf-32',
   -- ccls does not support sending a null root directory
   workspace_required = true,
   on_attach = function(client, bufnr)
