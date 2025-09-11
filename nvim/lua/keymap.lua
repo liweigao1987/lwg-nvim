@@ -103,7 +103,7 @@ map({ 'o', 'x' }, '<leader>js', function() flash.treesitter_search() end, { desc
 map('c', '<C-s>', function() flash.toggle() end, { desc = "toggle flash search" })
 
 -- multicursor
-map('n', '<leader>se', ":MCstart<CR>", opt)
+-- map('n', '<leader>se', ":MCstart<CR>", opt)
 
 map('n', '<leader>lr', "<cmd>lua vim.lsp.buf.rename()<cr>", opt)
 

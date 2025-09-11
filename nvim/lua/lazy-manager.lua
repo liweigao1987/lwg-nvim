@@ -192,23 +192,23 @@ $$$$$$$$/  $$$$$/$$$$/   $$$$$$$ |
 		"yorickpeterse/nvim-window",
 		config = true
 	},
-	{
-		"smoka7/multicursors.nvim",
-		event = "VeryLazy",
-		dependencies = {
-			'nvimtools/hydra.nvim',
-		},
-		opts = {},
-		cmd = { 'MCstart', 'MCvisual', 'MCclear', 'MCpattern', 'MCvisualPattern', 'MCunderCursor' },
-		keys = {
-			{
-				mode = { 'v', 'n' },
-				'<Leader>m',
-				'<cmd>MCstart<cr>',
-				desc = 'Create a selection for selected text or word under the cursor',
-			},
-		},
-	},
+	-- {
+	-- 	"smoka7/multicursors.nvim",
+	-- 	event = "VeryLazy",
+	-- 	dependencies = {
+	-- 		'nvimtools/hydra.nvim',
+	-- 	},
+	-- 	opts = {},
+	-- 	cmd = { 'MCstart', 'MCvisual', 'MCclear', 'MCpattern', 'MCvisualPattern', 'MCunderCursor' },
+	-- 	keys = {
+	-- 		{
+	-- 			mode = { 'v', 'n' },
+	-- 			'<Leader>m',
+	-- 			'<cmd>MCstart<cr>',
+	-- 			desc = 'Create a selection for selected text or word under the cursor',
+	-- 		},
+	-- 	},
+	-- },
 	{
 		'numToStr/Comment.nvim',
 		config = function()
@@ -300,6 +300,16 @@ $$$$$$$$/  $$$$$/$$$$/   $$$$$$$ |
 		end
 	},
 	{ "rafamadriz/friendly-snippets" },
+	{
+		"jake-stewart/multicursor.nvim",
+		branch = "1.0",
+		config = function()
+			require("plugin.multicursor")
+		end
+	},
+	{
+		"anuvyklack/hydra.nvim",
+	},
 	-- {
 	-- 	"tpope/vim-markdown",
 	-- 	config = function()
