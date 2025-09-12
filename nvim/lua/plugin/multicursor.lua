@@ -29,7 +29,9 @@ mc.addKeymapLayer(function(layerSet)
 	-- Select a different cursor as the main one.
 	layerSet({ "n", "x" }, "<left>", mc.prevCursor)
 	layerSet({ "n", "x" }, "<right>", mc.nextCursor)
-	layerSet({ "n", "x"}, "n", mc.matchAllAddCursors)
+	-- layerSet({ "n", "x" }, "j", function() mc.lineAddCursor(1) end)
+	-- layerSet({ "n", "x" }, "k", function() mc.lineAddCursor(-1) end)
+	layerSet({ "n", "x" }, "n", mc.matchAllAddCursors)
 	-- Delete the main cursor.
 	layerSet({ "n", "x" }, "<leader>x", mc.deleteCursor)
 

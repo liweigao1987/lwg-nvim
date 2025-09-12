@@ -104,6 +104,13 @@ map('c', '<C-s>', function() flash.toggle() end, { desc = "toggle flash search" 
 
 -- multicursor
 -- map('n', '<leader>se', ":MCstart<CR>", opt)
+-- Lua 配置示例
+local VM_leader = {
+	default = "<leader>m", -- 默认模式前缀键
+	visual = "<leader>m", -- 可视模式前缀键
+	buffer = "<leader>m" -- 缓冲区局部前缀键
+}
+vim.g.VM_leader = VM_leader
 
 map('n', '<leader>lr', "<cmd>lua vim.lsp.buf.rename()<cr>", opt)
 

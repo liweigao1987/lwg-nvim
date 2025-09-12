@@ -300,12 +300,16 @@ $$$$$$$$/  $$$$$/$$$$/   $$$$$$$ |
 		end
 	},
 	{ "rafamadriz/friendly-snippets" },
+	-- {
+	-- 	"jake-stewart/multicursor.nvim",
+	-- 	branch = "1.0",
+	-- 	config = function()
+	-- 		require("plugin.multicursor")
+	-- 	end
+	-- },
 	{
-		"jake-stewart/multicursor.nvim",
-		branch = "1.0",
-		config = function()
-			require("plugin.multicursor")
-		end
+		'mg979/vim-visual-multi',
+		branch = "master"
 	},
 	{
 		"anuvyklack/hydra.nvim",
