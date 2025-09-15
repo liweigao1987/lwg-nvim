@@ -12,12 +12,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	--{
-	--  "loctvl842/monokai-pro.nvim",
-	--  config = function()
-	--    require("monokai-pro").setup()
-	--  end
-	--},
 	{
 		"folke/tokyonight.nvim",
 		lazy = false,
@@ -88,7 +82,9 @@ require("lazy").setup({
 	},
 	{
 		"onsails/lspkind-nvim",
-		"tami5/lspsaga.nvim"
+	},
+	{
+		"tami5/lspsaga.nvim",
 	},
 	{
 		"folke/lua-dev.nvim"
@@ -104,10 +100,6 @@ require("lazy").setup({
 		config = function()
 			require("plugin.nvim-cmp")
 		end,
-	},
-	{
-		"L3MON4D3/LuaSnip",
-		version = "v2.*",
 	},
 	{
 		"nvim-tree/nvim-tree.lua",
@@ -128,12 +120,6 @@ require("lazy").setup({
 	{
 		"arkav/lualine-lsp-progress"
 	},
-	-- {
-	-- 	'ahmedkhalf/project.nvim',
-	-- 	config = function()
-	-- 		require("plugin.project")
-	-- 	end,
-	-- },
 	{
 		"folke/snacks.nvim",
 		priority = 1000,
@@ -192,23 +178,6 @@ $$$$$$$$/  $$$$$/$$$$/   $$$$$$$ |
 		"yorickpeterse/nvim-window",
 		config = true
 	},
-	-- {
-	-- 	"smoka7/multicursors.nvim",
-	-- 	event = "VeryLazy",
-	-- 	dependencies = {
-	-- 		'nvimtools/hydra.nvim',
-	-- 	},
-	-- 	opts = {},
-	-- 	cmd = { 'MCstart', 'MCvisual', 'MCclear', 'MCpattern', 'MCvisualPattern', 'MCunderCursor' },
-	-- 	keys = {
-	-- 		{
-	-- 			mode = { 'v', 'n' },
-	-- 			'<Leader>m',
-	-- 			'<cmd>MCstart<cr>',
-	-- 			desc = 'Create a selection for selected text or word under the cursor',
-	-- 		},
-	-- 	},
-	-- },
 	{
 		'numToStr/Comment.nvim',
 		config = function()
@@ -300,19 +269,15 @@ $$$$$$$$/  $$$$$/$$$$/   $$$$$$$ |
 		end
 	},
 	{ "rafamadriz/friendly-snippets" },
-	-- {
-	-- 	"jake-stewart/multicursor.nvim",
-	-- 	branch = "1.0",
-	-- 	config = function()
-	-- 		require("plugin.multicursor")
-	-- 	end
-	-- },
 	{
 		'mg979/vim-visual-multi',
 		branch = "master"
 	},
 	{
 		"anuvyklack/hydra.nvim",
+	},
+	{
+		"chrisbra/NrrwRgn",
 	},
 	-- {
 	-- 	"tpope/vim-markdown",
