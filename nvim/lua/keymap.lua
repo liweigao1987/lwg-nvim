@@ -18,12 +18,12 @@ local opt = {
 -- 本地变量
 local map = vim.keymap.set
 
-map("i", "<C-h>", "<left>", opt)
-map("i", "<C-j>", "<down>", opt)
-map("i", "<C-k>", "<up>", opt)
-map("i", "<C-l>", "<right>", opt)
-map("i", "<C-a>", "<esc>I", opt)
-map("i", "<C-e>", "<esc>A", opt)
+map({ 'i', 'c' }, "<C-h>", "<left>", opt)
+map({ 'i', 'c' }, "<C-j>", "<down>", opt)
+map({ 'i', 'c' }, "<C-k>", "<up>", opt)
+map({ 'i', 'c' }, "<C-l>", "<right>", opt)
+map({ 'i', 'c' }, "<C-a>", "<Home>", opt)
+map({ 'i', 'c' }, "<C-e>", "<End>", opt)
 
 map("n", "<leader>w/", ":vsp<cr>", opt)
 map("n", "<leader>w-", ":sp<cr>", opt)
@@ -45,25 +45,25 @@ map("n", "<leader>8", ":8wincmd w <cr>", opt)
 local pluginKeys = {}
 
 -- Telescope 列表中 插入模式快捷键
-pluginKeys.telescopeList = {
-	i = {
-		-- 上下移动
-		["<C-j>"] = "move_selection_next",
-		["<C-k>"] = "move_selection_previous",
-		-- 历史记录
-		["<C-n>"] = "cycle_history_next",
-		["<C-p>"] = "cycle_history_prev",
-		-- 关闭窗口
-		-- ["<esc>"] = actions.close,
-		["<C-c>"] = "close",
-	},
-	n = {
-		["<C-c>"] = "close",
-	},
-}
+-- pluginKeys.telescopeList = {
+-- 	i = {
+-- 		-- 上下移动
+-- 		["<C-j>"] = "move_selection_next",
+-- 		["<C-k>"] = "move_selection_previous",
+-- 		-- 历史记录
+-- 		["<C-n>"] = "cycle_history_next",
+-- 		["<C-p>"] = "cycle_history_prev",
+-- 		-- 关闭窗口
+-- 		-- ["<esc>"] = actions.close,
+-- 		["<C-c>"] = "close",
+-- 	},
+-- 	n = {
+-- 		["<C-c>"] = "close",
+-- 	},
+-- }
 local builtin = require('telescope.builtin')
 map('n', '<leader>ff', builtin.find_files, { desc = "find files" })
-map('n', '<leader>fg', builtin.live_grep, { desc = "project search" })
+map('n', '<leader>sp', builtin.live_grep, { desc = "project search" })
 map('n', '<leader>bb', builtin.buffers, { desc = "list buffers" })
 map('n', '<leader>fh', builtin.help_tags, { desc = "help tags" })
 map('n', '<leader>fr', builtin.oldfiles, { desc = "recent files" })
@@ -78,29 +78,29 @@ map('n', '<leader>hk', builtin.keymaps, { desc = "search keymap" })
 map('n', '<leader>ji', builtin.current_buffer_tags, { desc = "buffer tags" })
 map('n', '<leader>rl', builtin.resume, { desc = "resume pickers" })
 map('n', '<leader>sl', builtin.pickers, { desc = "list pickers" })
-map('n', '<leader>lr', builtin.lsp_references, { desc = "find references" })
-map('n', '<leader>la', builtin.lsp_incoming_calls, { desc = "find icalls" })
-map('n', '<leader>lo', builtin.lsp_outgoing_calls, { desc = "find ocalls" })
-map('n', '<leader>ls', builtin.lsp_document_symbols, { desc = "document symbols" })
-map('n', '<leader>lw', builtin.lsp_workspace_symbols, { desc = "workspace symbols" })
-map('n', '<leader>li', builtin.lsp_implementations, { desc = "find implementations" })
-map('n', '<leader>ld', builtin.lsp_definitions, { desc = "find definitions" })
-map('n', '<leader>lt', builtin.lsp_type_definitions, { desc = "type definitions" })
 map('n', '<leader>gc', builtin.git_commits, { desc = "git commits" })
 map('n', '<leader>gb', builtin.git_branches, { desc = "git branches" })
 map('n', '<leader>gs', builtin.git_status, { desc = "git status" })
-map('n', '<leader>lf', builtin.treesitter, { desc = "list treesitter" })
 map('n', '<leader>jd', ":Telescope file_browser<cr>", { desc = "file browser" })
 map('n', '<leader>pp', ":Telescope project<CR>", opt)
 map('n', '<leader>ss', ":Telescope current_buffer_fuzzy_find<cr>", opt)
-map('n', '<leader>sp', ":Telescope lsp_dynamic_workspace_symbols <cr>", opt)
+map('n', '<leader>la', builtin.lsp_incoming_calls, { desc = "find icalls" })
+map('n', '<leader>lb', ":Telescope lsp_dynamic_workspace_symbols <cr>", opt)
+map('n', '<leader>ld', builtin.lsp_definitions, { desc = "find definitions" })
+map('n', '<leader>lf', builtin.treesitter, { desc = "list treesitter" })
+map('n', '<leader>li', builtin.lsp_implementations, { desc = "find implementations" })
+map('n', '<leader>lo', builtin.lsp_outgoing_calls, { desc = "find ocalls" })
+map('n', '<leader>lr', builtin.lsp_references, { desc = "find references" })
+map('n', '<leader>ls', builtin.lsp_document_symbols, { desc = "document symbols" })
+map('n', '<leader>lt', builtin.lsp_type_definitions, { desc = "type definitions" })
+map('n', '<leader>lw', builtin.lsp_workspace_symbols, { desc = "workspace symbols" })
 
 -- nvim-tree
 map("n", "<leader>ft", ":NvimTreeToggle<CR>", opt)
 
 -- bufferline
 map("n", "<leader>bj", ":BufferLinePick<CR>", opt)
-map("n", "<leader><TAB>", ":BufferLineGoToBuffer -1<cr>", opt)
+map("n", "<leader><TAB>", ":b#<cr>", opt)
 -- 左右Tab切换
 map("n", "<leader>bh", ":BufferLineCyclePrev<CR>", opt)
 map("n", "<leader>bl", ":BufferLineCycleNext<CR>", opt)
