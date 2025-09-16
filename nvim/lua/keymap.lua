@@ -40,6 +40,8 @@ map("n", "<leader>6", ":6wincmd w <cr>", opt)
 map("n", "<leader>7", ":7wincmd w <cr>", opt)
 map("n", "<leader>8", ":8wincmd w <cr>", opt)
 
+map("n", "<leader>fs", ":w<cr>", { desc = "file save" })
+map("n", "<leader>fS", ":wa<cr>", { desc = "files save" })
 --------------------------------------------------------------------
 -- 插件快捷键
 local pluginKeys = {}
