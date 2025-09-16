@@ -282,6 +282,7 @@ $$$$$$$$/  $$$$$/$$$$/   $$$$$$$ |
 	{
 		"HiPhish/rainbow-delimiters.nvim",
 	},
+	{ 'akinsho/toggleterm.nvim',     version = "*", config = true },
 	-- {
 	-- 	"tpope/vim-markdown",
 	-- 	config = function()

@@ -102,7 +102,7 @@ map("n", "<leader>ft", ":NvimTreeToggle<CR>", opt)
 
 -- bufferline
 map("n", "<leader>bj", ":BufferLinePick<CR>", opt)
-map("n", "<leader><TAB>", ":b#<cr>", opt)
+map("n", "<leader><TAB>", ":b#<cr>", { desc = "switch buffer" })
 -- 左右Tab切换
 map("n", "<leader>bh", ":BufferLineCyclePrev<CR>", opt)
 map("n", "<leader>bl", ":BufferLineCycleNext<CR>", opt)
@@ -134,7 +134,9 @@ local VM_leader = {
 }
 vim.g.VM_leader = VM_leader
 
-map('n', '<leader>lr', "<cmd>lua vim.lsp.buf.rename()<cr>", opt)
+--toggleterm
+map("n", "<leader>tt", ":ToggleTerm<CR>", { desc = "terminal" })
+map("n", "<leader>tf", ":ToggleTerm direction=float<CR>", { desc = "float terminal" })
 
 -- comment
 pluginKeys.comment = {
