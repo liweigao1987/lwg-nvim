@@ -279,6 +279,9 @@ $$$$$$$$/  $$$$$/$$$$/   $$$$$$$ |
 	{
 		"chrisbra/NrrwRgn",
 	},
+	{
+		"HiPhish/rainbow-delimiters.nvim",
+	},
 	-- {
 	-- 	"tpope/vim-markdown",
 	-- 	config = function()
