@@ -67,6 +67,7 @@
 | Lazy              | 打开lazy插件列表 |
 | Telescope project | 打开project列表  |
 | checkhealth       | 检查配置是否正常 |
+|C-d|查看补全结果|
 
 | 编辑     | 描述                       |
 |:---------|:---------------------------|

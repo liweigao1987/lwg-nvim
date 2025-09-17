@@ -245,6 +245,10 @@ require("lazy").setup({
 		"HiPhish/rainbow-delimiters.nvim",
 	},
 	{ 'akinsho/toggleterm.nvim',     version = "*", config = true },
+	{
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+	},
 	-- {
 	-- 	"tpope/vim-markdown",
 	-- 	config = function()
