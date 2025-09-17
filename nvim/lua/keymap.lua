@@ -18,12 +18,17 @@ local opt = {
 -- 本地变量
 local map = vim.keymap.set
 
-map({ 'i', 'c' }, "<C-h>", "<left>", opt)
-map({ 'i', 'c' }, "<C-j>", "<down>", opt)
-map({ 'i', 'c' }, "<C-k>", "<up>", opt)
-map({ 'i', 'c' }, "<C-l>", "<right>", opt)
-map({ 'i', 'c' }, "<C-a>", "<Home>", opt)
-map({ 'i', 'c' }, "<C-e>", "<End>", opt)
+map({ 'i', 'c' }, "<C-h>", "<Left>", { desc = "left" })
+map({ 'i', 'c' }, "<C-j>", "<Down>", { desc = "down" })
+map({ 'i', 'c' }, "<C-k>", "<Up>", { desc = "up" })
+map({ 'i', 'c' }, "<C-l>", "<Right>", { desc = "right" })
+map({ 'i', 'c' }, "<C-a>", "<Home>", { desc = "line head" })
+map({ 'i', 'c' }, "<C-e>", "<End>", { desc = "line end" })
+map({ 'i', 'c' }, "<M-f>", "<C-o>w", { desc = "jump word forward" })
+map({ 'i', 'c' }, "<M-b>", "<C-o>b", { desc = "jump word back" })
+map({ 'i', 'c' }, "<M-h>", "<BS>", { desc = "del char left" })
+map({ 'i', 'c' }, "<M-l>", "<Del>", { desc = "del char right" })
+map({ 'i', 'c' }, "<M-d>", "<C-o>dw", { desc = "del word right" })
 
 map("n", "<leader>w/", ":vsp<cr>", opt)
 map("n", "<leader>w-", ":sp<cr>", opt)
@@ -155,6 +160,7 @@ pluginKeys.comment = {
 }
 
 --vim-table-mode
+map("n", "<leader>tm", ":TableModeToggle<CR>", { desc = "toggle visual mode" })
 vim.g.table_mode_motion_right_map = '<tab>'
 vim.g.table_mode_motion_left_map = '<S-tab>'
 
