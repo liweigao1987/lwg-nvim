@@ -136,6 +136,10 @@ vim.g.VM_leader = VM_leader
 map("n", "<leader>tt", ":ToggleTerm<CR>", { desc = "terminal" })
 map("n", "<leader>tf", ":ToggleTerm direction=float<CR>", { desc = "float terminal" })
 
+--snacks
+map("n", "<leader>ts", function() Snacks.terminal() end, { desc = "snacks terminal" })
+map("n", "<leader>tS", function() Snacks.terminal(nil, { win = { position = "float" } }) end, { desc = "snacks fterm" })
+
 -- comment
 pluginKeys.comment = {
 	-- Normal 模式快捷键
