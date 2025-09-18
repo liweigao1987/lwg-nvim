@@ -13,8 +13,11 @@ bufferline.setup {
 		offsets = {
 			{
 				filetype = "NvimTree",
-				text = "Tree",
-				highlight = "Directory",
+				-- text = "𝝅",
+				text = "☪",
+				-- highlight = "TabLineSel",
+				highlight = "ModeMsg",
+				-- highlight = "WarningMsg",
 				separator = true -- use a "true" to enable the default, or set your own character
 			}
 		},
