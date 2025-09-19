@@ -72,7 +72,10 @@ local pluginKeys = {}
 -- }
 local builtin = require('telescope.builtin')
 map('n', '<leader>ff', builtin.find_files, { desc = "find files" })
+map('n', '<leader>fF', ":Telescope dir find_files<cr>", { desc = "dir files" })
 map('n', '<leader>sp', builtin.live_grep, { desc = "project search" })
+map('n', '<leader>sP', builtin.grep_string, { desc = "cursor project search" })
+map('n', '<leader>sd', ":Telescope dir live_grep<cr>", { desc = "dir search" })
 map('n', '<leader>bb', builtin.buffers, { desc = "list buffers" })
 map('n', '<leader>hh', builtin.help_tags, { desc = "help tags" })
 map('n', '<leader>fr', builtin.oldfiles, { desc = "recent files" })
@@ -189,7 +192,7 @@ vim.cmd([[
   nn N <Cmd>call HiSearch('N')<CR>
 
   " :noh commmand mapping, if there isn't
-  nn <Esc>n <Cmd>noh<CR>
+  nn <leader>sq <Cmd>noh<CR>
  ]])
 
 return pluginKeys

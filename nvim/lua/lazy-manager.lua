@@ -255,6 +255,19 @@ require("lazy").setup({
 			-- settings
 		end,
 	},
+	{
+		"princejoogie/dir-telescope.nvim",
+		dependencies = {"nvim-telescope/telescope.nvim"},
+		config = function()
+			require("dir-telescope").setup({
+				-- these are the default options set
+				hidden = false,
+				no_ignore = false,
+				show_preview = true,
+				follow_symlinks = false,
+			})
+		end,
+	}
 	-- {
 	-- 	"tpope/vim-markdown",
 	-- 	config = function()
