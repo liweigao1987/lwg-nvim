@@ -249,6 +249,12 @@ require("lazy").setup({
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 	},
+	{
+		"azabiong/vim-highlighter",
+		init = function()
+			-- settings
+		end,
+	},
 	-- {
 	-- 	"tpope/vim-markdown",
 	-- 	config = function()

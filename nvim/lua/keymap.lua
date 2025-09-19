@@ -78,7 +78,7 @@ map('n', '<leader>hh', builtin.help_tags, { desc = "help tags" })
 map('n', '<leader>fr', builtin.oldfiles, { desc = "recent files" })
 map('n', '<leader>hc', builtin.commands, { desc = "search commands" })
 map('n', '<leader>hch', builtin.command_history, { desc = "command history" })
-map('n', '<leader>sh', builtin.search_history, { desc = "search history" })
+map('n', '<leader>sl', builtin.search_history, { desc = "search history" })
 map('n', '<leader>hm', builtin.man_pages, { desc = "man pages" })
 map('n', '<leader>mm', builtin.marks, { desc = "list marks" })
 map('n', '<leader>ho', builtin.vim_options, { desc = "search options" })
@@ -86,7 +86,7 @@ map('n', '<leader>rr', builtin.registers, { desc = "list registers" })
 map('n', '<leader>hk', builtin.keymaps, { desc = "search keymap" })
 map('n', '<leader>ji', builtin.current_buffer_tags, { desc = "buffer tags" })
 map('n', '<leader>rl', builtin.resume, { desc = "resume pickers" })
-map('n', '<leader>sl', builtin.pickers, { desc = "list pickers" })
+map('n', '<leader>sc', builtin.pickers, { desc = "list pickers" })
 map('n', '<leader>gc', builtin.git_commits, { desc = "git commits" })
 map('n', '<leader>gb', builtin.git_branches, { desc = "git branches" })
 map('n', '<leader>gs', builtin.git_status, { desc = "git status" })
@@ -176,5 +176,20 @@ pluginKeys.mapLSP = function(mapbuf)
 	mapbuf("n", "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
 	mapbuf("n", "<leader>gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
 end
+
+-- vim-highlighter
+vim.cmd([[
+   let HiSet   = '<leader>so'
+   let HiErase = '<leader>sr'
+   let HiClear = '<leader>sO'
+   let HiFind  = '<leader>sf'
+   let HiSetSL = '<leader>sh'
+     " jump key mappings
+  nn n <Cmd>call HiSearch('n')<CR>
+  nn N <Cmd>call HiSearch('N')<CR>
+
+  " :noh commmand mapping, if there isn't
+  nn <Esc>n <Cmd>noh<CR>
+ ]])
 
 return pluginKeys
