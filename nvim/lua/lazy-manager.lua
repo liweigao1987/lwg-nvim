@@ -102,6 +102,9 @@ require("lazy").setup({
 		end,
 	},
 	{
+		'saadparwaiz1/cmp_luasnip',
+	},
+	{
 		"nvim-tree/nvim-tree.lua",
 		dependencies = {
 			"nvim-tree/nvim-web-devicons", -- optional, for file icons
