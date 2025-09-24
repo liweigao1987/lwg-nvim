@@ -123,6 +123,17 @@ nvim_tree.setup({
 		root_folder_label = ":t",
 		icons = {
 			git_placement = "signcolumn",
+			glyphs = {
+				git = {
+					unstaged = "⊛",
+					staged = "⊜",
+					unmerged = "",
+					renamed = "⊘",
+					untracked = "⊕",
+					deleted = "⊖",
+					ignored = "⊗",
+				},
+			},
 		},
 	},
 	filters = {
