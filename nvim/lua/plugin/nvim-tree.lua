@@ -48,6 +48,9 @@ nvim_tree.setup({
 				},
 			},
 		},
+		indent_markers = {
+			enable = true,
+		},
 	},
 	filters = {
 		dotfiles = true,
