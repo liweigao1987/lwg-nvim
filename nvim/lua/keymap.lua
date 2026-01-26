@@ -208,4 +208,11 @@ vim.cmd([[
   nn <leader>sq <Cmd>noh<CR>
  ]])
 
+-- workspace
+vim.keymap.set("n", "<leader>Ww", "<cmd>Telescope workspaces<CR>", { desc = "打开工作区列表面板" })
+vim.keymap.set("n", "<leader>Wc", "<cmd>WorkspacesAdd<CR>", { desc = "创建新的工作区（分组）" })
+vim.keymap.set("n", "<leader>Wa", "<cmd>WorkspacesAddDir<CR>", { desc = "把当前目录添加到当前工作区" })
+vim.keymap.set("n", "<leader>Wr", "<cmd>WorkspacesRemoveDir<CR>", { desc = "把当前目录从工作区移除" })
+vim.keymap.set("n", "<leader>Wd", "<cmd>WorkspacesRemove<CR>", { desc = "删除选中的工作区" })
+
 return pluginKeys

@@ -70,10 +70,14 @@ require("lazy").setup({
 		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
 	},
 	{
-		'nvim-telescope/telescope-project.nvim',
-		dependencies = {
-			'nvim-telescope/telescope.nvim',
-		},
+		"nvim-telescope/telescope-project.nvim",
+		lazy = true,
+		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+		config = function()
+			require("telescope").load_extension("project")
+			-- 核心优化配置：记住项目根目录+自动切换工作目录，必加
+			vim.g.telescope_project_follow_symlinks = true
+		end,
 	},
 	{
 		"williamboman/mason.nvim",
@@ -273,7 +277,23 @@ require("lazy").setup({
 	},
 	{
 		'aaronik/treewalker.nvim',
-	}
+	},
+	-- 工作区分组核心插件：无依赖、零配置、原生Workspace功能
+	{
+		"natecraddock/workspaces.nvim",
+		lazy = true,
+		config = function()
+			require("workspaces").setup({
+				hooks = {
+					open = { "Telescope find_files" }, -- 切换工作区后，自动打开文件检索
+				}
+			})
+			-- 加载 Telescope 扩展，支持可视化管理工作区
+			require("telescope").load_extension("workspaces")
+		end,
+		dependencies = { "nvim-telescope/telescope.nvim" },
+	},
+
 	-- {
 	-- 	"tpope/vim-markdown",
 	-- 	config = function()

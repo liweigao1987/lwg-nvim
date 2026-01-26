@@ -12,6 +12,7 @@ end
 
 vim.g.nvim_tree_respect_buf_cwd = 1
 project.setup({
+	manual_mode = true,
 	detection_methods = { "pattern" },
 	patterns = {
 		"README.md",
@@ -32,4 +33,4 @@ if not status_telescope then
 	vim.notify("没有找到 telescope")
 	return
 end
-pcall(telescope.load_extension, "projects")
+pcall(telescope.load_extension, "project")
