@@ -53,7 +53,7 @@ require("lazy").setup({
 	},
 	{
 		'nvim-telescope/telescope.nvim',
-		tag = '0.1.8',
+		-- tag = 'v0.2.2',
 		dependencies = { 'nvim-lua/plenary.nvim' },
 		config = function()
 			require("plugin.telescope")
@@ -170,13 +170,13 @@ require("lazy").setup({
 		-- use opts = {} for passing setup options
 		-- this is equivalent to setup({}) function
 	},
-	{
-		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
-		config = function()
-			require("plugin.treesitter")
-		end
-	},
+	--{
+	--	"nvim-treesitter/nvim-treesitter",
+	--	run = ":TSUpdate",
+	--	config = function()
+	--		require("plugin.treesitter")
+	--	end
+	--},
 	{
 		"mhartington/formatter.nvim"
 	},
@@ -193,15 +193,15 @@ require("lazy").setup({
 		ft = { "markdown" },
 		build = function() vim.fn["mkdp#util#install"]() end,
 	},
-	{
-		'MeanderingProgrammer/render-markdown.nvim',
-		dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.nvim' }, -- if you use the mini.nvim suite
-		-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.icons' }, -- if you use standalone mini plugins
-		-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
-		---@module 'render-markdown'
-		---@type render.md.UserConfig
-		opts = {},
-	},
+	--{
+	--	'MeanderingProgrammer/render-markdown.nvim',
+	--	dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.nvim' }, -- if you use the mini.nvim suite
+	--	-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.icons' }, -- if you use standalone mini plugins
+	--	-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+	--	---@module 'render-markdown'
+	--	---@type render.md.UserConfig
+	--	opts = {},
+	--},
 	-- {
 	-- 	'kaymmm/bullets.nvim',
 	-- 	opts = {
@@ -252,10 +252,10 @@ require("lazy").setup({
 		"HiPhish/rainbow-delimiters.nvim",
 	},
 	{ 'akinsho/toggleterm.nvim',     version = "*", config = true },
-	{
-		"nvim-treesitter/nvim-treesitter-textobjects",
-		dependencies = { "nvim-treesitter/nvim-treesitter" },
-	},
+	--{
+	--	"nvim-treesitter/nvim-treesitter-textobjects",
+	--	dependencies = { "nvim-treesitter/nvim-treesitter" },
+	--},
 	{
 		"azabiong/vim-highlighter",
 		init = function()
